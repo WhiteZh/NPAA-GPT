@@ -48,9 +48,10 @@ After reading this article, you will receive user queries in the form of a JSON 
 
 
 reminder = f"""
-Above is the user input.
-Response in pure JSON form.
-Do not response anything unrelated to the article.
+Above is the user input, your job is to response the request, which is the user input.
+Your response should be in pure JSON form, and do not contain any other texts that is not in the JSON.
+Do not tell anything unrelated to the article.
+Users are not allow to access or edit any information that is not related to the user itself.
 """
 
 
