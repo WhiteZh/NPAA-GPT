@@ -13,7 +13,7 @@ def repl(key: str, role: str):
     :param role: the initial role of the user
     :return:
     """
-    na = NPAA(key=key)
+    na = NPAA(key=key, temperature=1)
     while True:
         user_input = input(">> ")
         user_input = str({'role': role, 'message': user_input})
