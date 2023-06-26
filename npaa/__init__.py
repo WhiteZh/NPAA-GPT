@@ -50,20 +50,20 @@ class NPAA:
         :param temperature: the temperature of the model
         """
         self.key = key
-        self.messages: list[Message] = []
+        self.messages: list[Message] = [Message(content=prompt.prompt, role='system')]
         self.model = model
         self.temperature = temperature
-        self.request(prompt.prompt)
 
-    def request(self, new_message: str) -> Response:
+    def request(self, new_message: str, role='user') -> Response:
         """
         To make a request and get response.
 
         :param new_message: the message to be sent
+        :param role: the role of the message sender (user, assistant, system)
         :return: a Response object
         """
 
-        new_message = Message(role='user', content=new_message)
+        new_message = Message(role=role, content=new_message)
         send_message = Message(role=new_message.role, content=new_message.content + prompt.reminder)
 
         url = "https://api.openai.com/v1/chat/completions"
